@@ -23,6 +23,10 @@ namespace ItensPersonagemLOL_API.Controllers
         {
             var lista = _appDbContext.Item
                 .Include(i => i.Classe)
+                .Include(i => i.EfeitosPassivo)
+                .Include(i => i.ItemAtributos)
+                .Include(i => i.Componentes)
+                .Include(i => i.UsadoEm)
                 .OrderBy(c => c.Codigo)
                 .ToList();
 
@@ -56,7 +60,11 @@ namespace ItensPersonagemLOL_API.Controllers
                 {
                     ItemExiste.Nome = item.Nome;
                     ItemExiste.Preco = item.Preco;
-                    ItemExiste.EfeitoAtivo = item.EfeitoAtivo;
+                    if (ItemExiste.EfeitoAtivo != null)
+                    {
+                        ItemExiste.EfeitoAtivo = item.EfeitoAtivo;
+                    }
+                    
                     ItemExiste.ClasseCodigo = item.ClasseCodigo;
 
                     _appDbContext.Item.Update(ItemExiste);
@@ -100,7 +108,6 @@ namespace ItensPersonagemLOL_API.Controllers
             {
                 return NotFound("Item não encontrado!");
             }
-
 
         }
     }

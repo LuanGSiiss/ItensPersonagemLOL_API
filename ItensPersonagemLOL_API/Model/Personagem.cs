@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ItensPersonagemLOL_API.Model
 {
@@ -17,8 +18,9 @@ namespace ItensPersonagemLOL_API.Model
 
         [ForeignKey("Classe")]
         public int ClasseCodigo { get; set; }
-        public Classe Classe { get; set; }
+        [JsonIgnore]
+        public Classe? Classe { get; set; }
 
-        public ICollection<PersonagemItem> PersonagemItens { get; set; }
+        public ICollection<PersonagemItem> PersonagemItens { get; set; } = new List<PersonagemItem>();
     }
 }

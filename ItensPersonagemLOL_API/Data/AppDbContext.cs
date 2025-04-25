@@ -23,19 +23,6 @@ namespace ItensPersonagemLOL_API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Relação da ItemAtributo
-            modelBuilder.Entity<ItemAtributo>()
-                .HasKey(ia => new { ia.ItemCodigo, ia.AtributoCodigo });
-
-            modelBuilder.Entity<ItemAtributo>()
-                .HasOne(ia => ia.Item)
-                .WithMany(i => i.ItemAtributos)
-                .HasForeignKey(ia => ia.ItemCodigo);
-
-            modelBuilder.Entity<ItemAtributo>()
-                .HasOne(ia => ia.Atributo)
-                .WithMany(a => a.ItemAtributos)
-                .HasForeignKey(ia => ia.AtributoCodigo);
 
             //Relação da ItemComponente
             modelBuilder.Entity<ItemComponente>()

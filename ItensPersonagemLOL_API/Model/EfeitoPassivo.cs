@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ItensPersonagemLOL_API.Model
 {
@@ -22,6 +23,8 @@ namespace ItensPersonagemLOL_API.Model
         public string Descricao { get; set; }
 
         public int ItemCodigo { get; set; }
-        public Item Item { get; set; }
+        
+        [JsonIgnore]
+        public Item? Item { get; set; }
     }
 }
