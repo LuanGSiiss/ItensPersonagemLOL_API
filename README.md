@@ -4,5 +4,12 @@ API desenvolvida com foco no gerenciamento de personagens e itens do jogo League
 - C#;
 - Insomnia(Testes);
 - PostgreSQL;
-- Swagger(C#);
+- Swagger;
+- Entity Framework Core;
 
+
+Demonstração:
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
